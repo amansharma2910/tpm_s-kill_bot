@@ -7,7 +7,8 @@
 - `.claude/agents/`: four research subagents (repo-surveyor, impact-analyzer, doc-crawler, competitor-researcher).
 - `.claude/commands/`: ten slash command aliases (/interview, /architect, /qa, /metrics, /fix, /release, /document, /roadmap, /triage, /gtm).
 - `docs/`: file-based state. plans/, fixes/, adr/, metrics/, releases/ (with CHANGELOG.md), feedback/ (with feedback_log.md), features/, gtm/, roadmap.md, user_testing_documentation.md, and this file.
-- Repo root also holds the source spec (`claude_code_tpm_setup_prompt.md`), two reference diagrams (`tpm_system_lifecycle.mermaid`, `tpm_component_architecture.mermaid`), and the build plan (`tpm_s-kill_bot_implementation_plan.md`).
+- `install.sh`: self-contained one-command installer that packages this entire suite for any repository, deriving the project name from the target directory. Every installed file is embedded in it; `./install.sh --self-test` verifies the embedded copies match this repo's live files.
+- `README.md`: install instructions, conflict policy, smoke test, and maintainer rules.
 
 ## Third-Party Dependencies
 
@@ -25,6 +26,7 @@ None. The project is a Claude Code configuration: markdown files with YAML front
 1. Open this repository in Claude Code.
 2. Restart the session after any change to `.claude/agents/` or `.claude/commands/` (skills hot-reload; agents and commands load at session start).
 3. Make requests in plain language and CLAUDE.md routes them, or invoke a mode directly with its slash command.
+4. To install this suite into another repository: `./install.sh /path/to/project`, or the curl one-liner in README.md once the repo is pushed to GitHub.
 
 ## Architectural Overview
 
